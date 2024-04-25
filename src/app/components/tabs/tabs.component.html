@@ -1,0 +1,6 @@
+<button
+  class="navbar__item"
+  *ngFor="let tab of tabs; let i = index"
+  [ngClass]="{'navbar__item--active': i === activeTab}"
+  (click)="onTabChange(i)"
+>{{tab.point}}</button>

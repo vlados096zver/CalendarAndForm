@@ -1,0 +1,52 @@
+<app-button
+  class="form__back"
+  [name]="'Back'"
+  (click)="calendarService.goBack()"></app-button>
+<form [formGroup]="formGroup">
+  <ng-container *ngFor="let elem of getControls(formGroup, 'addresses') as controls; index as i; first as first">
+    <app-input-line
+      class="form__input"
+      [submitted]="submitted"
+      [control]="getAddressControl(formGroup, i)"
+      [placeholder]="'Address'"></app-input-line>
+    <div *ngIf="getPhoneControls" class="phone">
+      <app-input-line
+        *ngFor="let phone of getPhoneControls(formGroup, i); let j = index"
+        class="form__input"
+        [submitted]="submitted"
+        [control]="phone"
+        [placeholder]="'Phone'">
+           <app-button
+             class="form__remove"
+             [name]="'Remove phone'"
+             (buttonClick)="removePhone(i, j)">
+           </app-button>
+      </app-input-line>
+    </div>
+    <div class="form__holder">
+      <app-button
+        *ngIf="first"
+        class="form__btn"
+        [name]="'Add address'"
+        (buttonClick)="addAddress()"></app-button>
+      <app-button
+        *ngIf="controls.length > 1 && i > 0"
+        class="form__btn"
+        (buttonClick)="removeAddress(i)"
+        [name]="'Delete address'"></app-button>
+      <app-button
+        class="form__btn"
+        [name]="'Add Phone'"
+        (buttonClick)="addPhone(i)"></app-button>
+    </div>
+  </ng-container>
+  <app-input-line
+    class="form__input"
+    [submitted]="submitted"
+    [control]="name"
+    [placeholder]="'Name'"></app-input-line>
+  <app-button
+    [name]="'Send'"
+    (buttonClick)="send()"></app-button>
+</form>
+

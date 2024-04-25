@@ -1,0 +1,11 @@
+
+<input
+  class="block__input"
+  readonly
+  [class.error]="submitted && control.errors && control.errors['required'] || submitted && control.errors && control.errors['pattern']"
+  [formControl]="control"
+  [matDatepicker]="releasedAtPicker"
+  (click)="releasedAtPicker.open()"
+>
+<mat-datepicker #releasedAtPicker >
+</mat-datepicker>

@@ -1,0 +1,37 @@
+:host {
+  display: block;
+}
+
+.block {
+  &__input {
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    outline: none;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 9px 15px;
+    font-family: Roboto, sans-serif;
+    &:focus {
+      border-color: #84849b;
+    }
+    &.disabled {
+      pointer-events: none;
+      user-select: none;
+      opacity: 0.4;
+      border-color: #303048;
+    }
+    &.error {
+      border-color: #DD5860 !important;
+    }
+  }
+}
+
+p.error {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #DD5860;
+  margin-bottom: 10px;
+}
+
+

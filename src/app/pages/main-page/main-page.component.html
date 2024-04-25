@@ -1,0 +1,43 @@
+<div *ngIf="activeTab === 0">{{ calendarService.currentDate | date:"MMMM, yyyy" }}</div>
+<div *ngIf="activeTab === 1"> {{ calendarService.currentDate | weekRange : calendarService.daysWeek }} </div>
+<div *ngIf="activeTab === 2">{{ calendarService.currentDate | date:"dd, MMMM, yyyy" }}</div>
+
+<div class="calendar__holder">
+<app-button (click)="calendarService.decreaseData(activeTab)" [name]="'Prev'"></app-button>
+<app-button (click)="calendarService.increaseData(activeTab)" [name]="'Next'">Next</app-button>
+<app-button [routerLink]="'/form'" [name]="'Form'"></app-button>
+</div>
+
+<app-tabs
+ [tabs]="tabs"
+ (activeTabChange)="changeState($event)"
+ [(activeTab)]="activeTab">
+</app-tabs>
+
+<div class="calendar__row" *ngIf="activeTab !== 2">
+  <div class="calendar__title" *ngFor="let item of calendarService.daysOfWeek">{{ item }}</div>
+</div>
+
+<div class="calendar__row" *ngIf="activeTab === 0">
+  <ng-container *ngFor="let item of calendarService.daysMonth">
+    <app-day-info [item]="item"></app-day-info>
+  </ng-container>
+</div>
+
+<div class="calendar__row" *ngIf="activeTab === 1">
+  <ng-container *ngFor="let item of calendarService.daysWeek">
+    <app-day-info [item]="item"></app-day-info>
+  </ng-container>
+</div>
+
+<div class="calendar__row" *ngIf="activeTab === 2">
+  <app-single [info]="tableEventsService.eventsSubject.value" ></app-single>
+  </div>
+
+  <div class="events__row">
+    <div class="events__title">Add events</div>
+    <div class="events__btn" (click)="addNewEvent()">Add new</div>
+  </div>
+  <app-new-event-head [settings]="settingsTableEvents"></app-new-event-head>
+
+  <router-outlet></router-outlet>

@@ -1,0 +1,8 @@
+
+<ng-container *ngIf="settings">
+  <ng-container *ngFor="let headItem of settings.head; let index = index">
+    <ng-container *ngIf="headItem">
+      <div class="event__item" [style.max-width.px]="headItem.maxWidth" >{{headItem.title}}</div>
+    </ng-container>
+  </ng-container>
+</ng-container>

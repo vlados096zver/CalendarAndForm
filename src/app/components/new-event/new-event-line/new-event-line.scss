@@ -1,0 +1,16 @@
+
+:host {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ced4da;
+  border-top: none;
+}
+.event {
+  &__item {
+    flex: 1;
+    padding: 10px;
+    &:not(:last-child) {
+      border-right: 1px solid #ced4da;
+    }
+  }
+}

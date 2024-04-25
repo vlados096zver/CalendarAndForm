@@ -1,0 +1,23 @@
+<ng-container *ngIf="id" class="single">
+  <app-button
+    class="single__back"
+    [name]="'Back'"
+    (click)="calendarService.goBack()"></app-button>
+  <div class="single__day">Day: {{id}}</div>
+</ng-container>
+
+<div class="single__title">Events</div>
+ <ol *ngIf="info && info.length > 0; else emptyList">
+  <ng-container *ngFor="let item of info; let index = index">
+    <li *ngIf="item.value">{{item.value}}</li>
+    <app-button
+      *ngIf="id"
+      (click)="updateBlock(id, index)"
+      [name]="'Delete'">
+    </app-button>
+  </ng-container>
+</ol>
+
+<ng-template #emptyList>
+  <div class="single__empty">Empty</div>
+</ng-template>

@@ -1,0 +1,9 @@
+
+  <input
+    type="text"
+    class="block__input"
+    [class.error]="submitted && control.errors && control.errors['required'] || submitted && control.errors && control.errors['pattern']"
+    [formControl]="control"
+    [placeholder]="placeholder"
+  >
+  <ng-content></ng-content>

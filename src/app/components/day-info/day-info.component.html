@@ -1,0 +1,7 @@
+
+  <div
+    class="calendar__box"
+    [id]="item.id"
+    [class.active]="item.currentMonth"
+    [class.isToday]="item.isToday"
+    (click)="gotoDay(item.id)">{{item.day}}</div>

@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  background-color: #282B43;
+  border-radius: 3px;
+  margin-bottom: 30px;
+}
+
+.navbar {
+  &__item {
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1.2;
+    color: #D1D1D1;
+    border: none;
+    background-color: transparent;
+    padding: 10px 46px;
+    outline: none;
+    &--active {
+      background-color: #364370;
+      border-radius: 3px;
+    }
+  }
+}

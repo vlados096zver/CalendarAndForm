@@ -1,0 +1,20 @@
+.active {
+  color: red;
+  font-weight: 500;
+}
+
+.isToday {
+  background-color: #e8fde7;
+}
+
+:host {
+  display: block;
+  width: calc(100% / 7);
+  text-align: center;
+}
+
+.calendar {
+  &__box {
+    padding: 35px 20px;
+  }
+}

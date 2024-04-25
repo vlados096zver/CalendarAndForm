@@ -1,0 +1,28 @@
+
+<ng-container *ngIf="settings">
+  <ng-container *ngFor="let column of settings.head; let i = index">
+  <div *ngIf="column"
+       class="event__item"
+       [style.max-width.px]="column.maxWidth">
+    <ng-container *ngIf="i === 0">
+      <app-input-line
+        [control]="text"
+        [submitted]="isSubmitted"></app-input-line>
+    </ng-container>
+
+    <ng-container *ngIf="i === 1">
+      <app-input-date
+        [control]="date"
+        [submitted]="isSubmitted"></app-input-date>
+    </ng-container>
+
+    <ng-container *ngIf="i === 2">
+      <div (click)="saveEvent(date.value, text.value)">SaveEvent</div>
+    </ng-container>
+
+    <ng-container *ngIf="i === 3">
+      <div (click)="deleteComponent()">Delete</div>
+    </ng-container>
+
+  </div>
+</ng-container>

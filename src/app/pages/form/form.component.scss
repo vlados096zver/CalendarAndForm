@@ -1,0 +1,29 @@
+:host {
+  display: block;
+  padding-top: 20px;
+}
+
+.phone {
+  padding-left: 20px;
+}
+
+
+.form {
+  &__holder {
+    display: flex;
+    gap: 20px;
+  }
+  &__input {
+    margin-bottom: 20px;
+  }
+  &__btn {
+    margin-bottom: 24px;
+  }
+  &__remove {
+    margin-left: 20px;
+  }
+  &__back {
+    display: block;
+    margin-bottom: 24px;
+  }
+}
